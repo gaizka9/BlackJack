@@ -18,6 +18,7 @@ public class blackJackMain {
 		String segJug ;
 		boolean sigMano = false;
 		boolean doblar = false;
+		boolean dividir = false;
 		boolean ronda = false;
 		ArrayList<carta> a = new ArrayList<carta>();
 		
@@ -100,6 +101,11 @@ public class blackJackMain {
 						doblar=true;
 					}
 					
+						System.out.println("4- Dividir cartas");
+						dividir=true;
+					
+					
+					
 					suikeis=sc.nextInt();
 					switch(suikeis){
 					case 1:
@@ -181,6 +187,8 @@ public class blackJackMain {
 						
 						sigMano=true;
 						break;	
+					default: 
+						System.out.println("Esa opcion no es valida");
 					}
 				}while(sigMano!=true);
 			}
