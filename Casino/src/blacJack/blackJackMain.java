@@ -18,7 +18,6 @@ public class blackJackMain {
 		String segJug ;
 		boolean sigMano = false;
 		boolean doblar = false;
-		boolean dividir = false;
 		boolean ronda = false;
 		ArrayList<carta> a = new ArrayList<carta>();
 		
@@ -45,8 +44,14 @@ public class blackJackMain {
 			System.out.println("Error Clase No Encontrada");
 		}
 		
+		ArrayList b = (ArrayList) a.clone(); 
 		
 		do {
+			if(a.size()<16) {
+				a.clear();
+				a = (ArrayList) b.clone(); 
+			}
+			
 			bote=0;
 			jugadorValor=0;
 			crupierValor=0;
@@ -100,10 +105,6 @@ public class blackJackMain {
 						System.out.println("3- Doblar apuesta");
 						doblar=true;
 					}
-					
-						System.out.println("4- Dividir cartas");
-						dividir=true;
-					
 					
 					
 					suikeis=sc.nextInt();
