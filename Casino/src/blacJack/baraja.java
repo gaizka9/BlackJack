@@ -130,7 +130,65 @@ public class baraja {
 			oos.writeObject(p10);	oos.writeObject(p10);	oos.writeObject(p10);	oos.writeObject(p10);	
 			oos.writeObject(pJ);	oos.writeObject(pJ);	oos.writeObject(pJ);	oos.writeObject(pJ);	
 			oos.writeObject(pQ);	oos.writeObject(pQ);	oos.writeObject(pQ);	oos.writeObject(pQ);	
-			oos.writeObject(pK);	oos.writeObject(pK);	oos.writeObject(pK);	oos.writeObject(pK);	
+			oos.writeObject(pK);	oos.writeObject(pK);	oos.writeObject(pK);	oos.writeObject(pK);
+			
+			
+			//Baraja 5				//Baraja 6				//Baraja 7				//Baraja 8				
+			oos.writeObject(tA);	oos.writeObject(tA);	oos.writeObject(tA);	oos.writeObject(tA);	
+			oos.writeObject(t2);	oos.writeObject(t2);	oos.writeObject(t2);	oos.writeObject(t2);	
+			oos.writeObject(t3);	oos.writeObject(t3);	oos.writeObject(t3);	oos.writeObject(t3);	
+			oos.writeObject(t4);	oos.writeObject(t4);	oos.writeObject(t4);	oos.writeObject(t4);	
+			oos.writeObject(t5);	oos.writeObject(t5);	oos.writeObject(t5);	oos.writeObject(t5);	
+			oos.writeObject(t6);	oos.writeObject(t6);	oos.writeObject(t6);	oos.writeObject(t6);	
+			oos.writeObject(t7);	oos.writeObject(t7);	oos.writeObject(t7);	oos.writeObject(t7);	
+			oos.writeObject(t8);	oos.writeObject(t8);	oos.writeObject(t8);	oos.writeObject(t8);	
+			oos.writeObject(t9);	oos.writeObject(t9);	oos.writeObject(t9);	oos.writeObject(t9);	
+			oos.writeObject(t10);	oos.writeObject(t10);	oos.writeObject(t10);	oos.writeObject(t10);	
+			oos.writeObject(tJ);	oos.writeObject(tJ);	oos.writeObject(tJ);	oos.writeObject(tJ);	
+			oos.writeObject(tQ);	oos.writeObject(tQ);	oos.writeObject(tQ);	oos.writeObject(tQ);	
+			oos.writeObject(tK);	oos.writeObject(tK);	oos.writeObject(tK);	oos.writeObject(tK);	
+
+			oos.writeObject(cA);	oos.writeObject(cA);	oos.writeObject(cA);	oos.writeObject(cA);	
+			oos.writeObject(c2);	oos.writeObject(c2);	oos.writeObject(c2);	oos.writeObject(c2);	
+			oos.writeObject(c3);	oos.writeObject(c3);	oos.writeObject(c3);	oos.writeObject(c3);	
+			oos.writeObject(c4);	oos.writeObject(c4);	oos.writeObject(c4);	oos.writeObject(c4);	
+			oos.writeObject(c5);	oos.writeObject(c5);	oos.writeObject(c5);	oos.writeObject(c5);	
+			oos.writeObject(c6);	oos.writeObject(c6);	oos.writeObject(c6);	oos.writeObject(c6);	
+			oos.writeObject(c7);	oos.writeObject(c7);	oos.writeObject(c7);	oos.writeObject(c7);	
+			oos.writeObject(c8);	oos.writeObject(c8);	oos.writeObject(c8);	oos.writeObject(c8);	
+			oos.writeObject(c9);	oos.writeObject(c9);	oos.writeObject(c9);	oos.writeObject(c9);	
+			oos.writeObject(c10);	oos.writeObject(c10);	oos.writeObject(c10);	oos.writeObject(c10);	
+			oos.writeObject(cJ);	oos.writeObject(cJ);	oos.writeObject(cJ);	oos.writeObject(cJ);	
+			oos.writeObject(cQ);	oos.writeObject(cQ);	oos.writeObject(cQ);	oos.writeObject(cQ);	
+			oos.writeObject(cK);	oos.writeObject(cK);	oos.writeObject(cK);	oos.writeObject(cK);	
+			
+			oos.writeObject(dA);	oos.writeObject(dA);	oos.writeObject(dA);	oos.writeObject(dA);	
+			oos.writeObject(d2);	oos.writeObject(d2);	oos.writeObject(d2);	oos.writeObject(d2);	
+			oos.writeObject(d3);	oos.writeObject(d3);	oos.writeObject(d3);	oos.writeObject(d3);	
+			oos.writeObject(d4);	oos.writeObject(d4);	oos.writeObject(d4);	oos.writeObject(d4);	
+			oos.writeObject(d5);	oos.writeObject(d5);	oos.writeObject(d5);	oos.writeObject(d5);	
+			oos.writeObject(d6);	oos.writeObject(d6);	oos.writeObject(d6);	oos.writeObject(d6);	
+			oos.writeObject(d7);	oos.writeObject(d7);	oos.writeObject(d7);	oos.writeObject(d7);	
+			oos.writeObject(d8);	oos.writeObject(d8);	oos.writeObject(d8);	oos.writeObject(d8);	
+			oos.writeObject(d9);	oos.writeObject(d9);	oos.writeObject(d9);	oos.writeObject(d9);	
+			oos.writeObject(d10);	oos.writeObject(d10);	oos.writeObject(d10);	oos.writeObject(d10);	
+			oos.writeObject(dJ);	oos.writeObject(dJ);	oos.writeObject(dJ);	oos.writeObject(dJ);	
+			oos.writeObject(dQ);	oos.writeObject(dQ);	oos.writeObject(dQ);	oos.writeObject(dQ);	
+			oos.writeObject(dK);	oos.writeObject(dK);	oos.writeObject(dK);	oos.writeObject(dK);	
+			
+			oos.writeObject(pA);	oos.writeObject(pA);	oos.writeObject(pA);	oos.writeObject(pA);	
+			oos.writeObject(p2);	oos.writeObject(p2);	oos.writeObject(p2);	oos.writeObject(p2);	
+			oos.writeObject(p3);	oos.writeObject(p3);	oos.writeObject(p3);	oos.writeObject(p3);	
+			oos.writeObject(p4);	oos.writeObject(p4);	oos.writeObject(p4);	oos.writeObject(p4);	
+			oos.writeObject(p5);	oos.writeObject(p5);	oos.writeObject(p5);	oos.writeObject(p5);	
+			oos.writeObject(p6);	oos.writeObject(p6);	oos.writeObject(p6);	oos.writeObject(p6);	
+			oos.writeObject(p7);	oos.writeObject(p7);	oos.writeObject(p7);	oos.writeObject(p7);	
+			oos.writeObject(p8);	oos.writeObject(p8);	oos.writeObject(p8);	oos.writeObject(p8);	
+			oos.writeObject(p9);	oos.writeObject(p9);	oos.writeObject(p9);	oos.writeObject(p9);	
+			oos.writeObject(p10);	oos.writeObject(p10);	oos.writeObject(p10);	oos.writeObject(p10);	
+			oos.writeObject(pJ);	oos.writeObject(pJ);	oos.writeObject(pJ);	oos.writeObject(pJ);	
+			oos.writeObject(pQ);	oos.writeObject(pQ);	oos.writeObject(pQ);	oos.writeObject(pQ);	
+			oos.writeObject(pK);	oos.writeObject(pK);	oos.writeObject(pK);	oos.writeObject(pK);
 			// cierro los recursos abiertos
 			oos.close();
 			fos.close();

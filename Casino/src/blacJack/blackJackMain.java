@@ -14,10 +14,11 @@ public class blackJackMain {
 		Scanner sc = new Scanner(System.in);
 		carta f = new carta();
 		
-		int o, crupierValor=0, jugadorValor=0, banca=1000, bote=0, suikeis, apuesta;
+		int o=0, crupierValor=0, jugadorValor=0, banca=1000, bote=0, suikeis, apuesta;
 		String segJug ;
 		boolean sigMano = false;
 		boolean doblar = false;
+		boolean SiNo = false;
 		boolean ronda = false;
 		ArrayList<carta> a = new ArrayList<carta>();
 		
@@ -67,29 +68,19 @@ public class blackJackMain {
 			banca=banca-apuesta;
 			bote=bote+apuesta;
 			
-			o = (int)(Math.random()* a.size()-1 + 0);
-			System.out.println("Primera carta del crupier: " + a.get(o));
-			crupierValor=crupierValor+a.get(o).getValor();
-			a.remove(o);
 			
-			o = (int)(Math.random()* a.size()-1 + 0);
+			crupierValor = cartasCrupier(o, crupierValor, a);
+			
 			System.out.println("Tus cartas: ");
-			System.out.println(a.get(o));
-			jugadorValor=jugadorValor+a.get(o).getValor();
-			a.remove(o);
-			o = (int)(Math.random()* a.size()-1 + 0);
-			System.out.println(a.get(o));
-			jugadorValor=jugadorValor+a.get(o).getValor();
-			a.remove(o);
-			System.out.println(jugadorValor);
+			jugadorValor = cartasJugador(o, jugadorValor, a);
+			
+			jugadorValor = cartasJugador(o, jugadorValor, a);
+			System.out.println("[" + jugadorValor + "]");
 			doblar=false;
 			
 			if(jugadorValor==21) {
-				o = (int)(Math.random()* a.size()-1 + 0);
-				System.out.println("Carta del crupier: " + a.get(o));
-				crupierValor=crupierValor+a.get(o).getValor();
-				a.remove(o);
-				System.out.println(crupierValor);
+				crupierValor = cartasCrupier(o, crupierValor, a);
+				System.out.println("[" + crupierValor + "]");
 				if(crupierValor==21) {
 					System.out.println("Empate");
 				}else {
@@ -106,90 +97,62 @@ public class blackJackMain {
 						doblar=true;
 					}
 					
-					
-					suikeis=sc.nextInt();
-					switch(suikeis){
-					case 1:
-						o = (int)(Math.random()* a.size()-1 + 0);
-						System.out.println(a.get(o));
-						jugadorValor=jugadorValor+a.get(o).getValor();
-						System.out.println(jugadorValor);
-						a.remove(o);
-						if(jugadorValor>21) {
-							System.out.println("Te has pasado");
-							sigMano=true;
-						}else {
-							sigMano=false;
-						}
-						break;
+					try {
+						suikeis=sc.nextInt();
 						
-					case 2:
-						do {
-							o = (int)(Math.random()* a.size()-1 + 0);
-							System.out.println("Carta del crupier: " + a.get(o));
-							crupierValor=crupierValor+a.get(o).getValor();
-							a.remove(o);
-							System.out.println(crupierValor);
-						}while(crupierValor<17);
-						
-						if(crupierValor>21) {
-							System.out.println("Has ganado");
-							banca=banca+bote*2;
-						}else {
-							if(jugadorValor<crupierValor) {
-								System.out.println("Has perdido");
-							}else if(jugadorValor>crupierValor) {
-								System.out.println("Has ganado");
-								banca=banca+bote*2;
-							}else if(jugadorValor==crupierValor) {
-								System.out.println("Empate");
-								banca=banca+bote;
-							} 
-						}
-						sigMano=true;
-						break;
-						
-					case 3:
-						banca=banca-apuesta;
-						bote=bote+apuesta;
-						
-						o = (int)(Math.random()* a.size()-1 + 0);
-						System.out.println(a.get(o));
-						jugadorValor=jugadorValor+a.get(o).getValor();
-						System.out.println(jugadorValor);
-						a.remove(o);
-						
-						if(jugadorValor>21) {
-							System.out.println("Te has pasado");
-						}else {
+						switch(suikeis){
+						case 1:
+							jugadorValor = cartasJugador(o, jugadorValor, a);
+							System.out.println("[" + jugadorValor + "]");
+							
+							if(jugadorValor>21) {
+								System.out.println("Te has pasado");
+								sigMano=true;
+							}else {
+								sigMano=false;
+							}
+							break;
+							
+						case 2:
 							do {
-								o = (int)(Math.random()* a.size()-1 + 0);
-								System.out.println("Carta del crupier: " + a.get(o));
-								crupierValor=crupierValor+a.get(o).getValor();
-								a.remove(o);
-								System.out.println(crupierValor);
+								crupierValor = cartasCrupier(o, crupierValor, a);
+								System.out.println("[" + crupierValor + "]");
 							}while(crupierValor<17);
 							
-							if(crupierValor>21) {
-								System.out.println("Has ganado");
-								banca=banca+bote*2;
+							banca = ganancias(banca, bote, crupierValor, jugadorValor);
+							
+							sigMano=true;
+							break;
+							
+						case 3:
+							banca=banca-apuesta;
+							bote=bote+apuesta;
+							
+							jugadorValor = cartasJugador(o, jugadorValor, a);
+							System.out.println("[" + jugadorValor + "]");
+							
+							if(jugadorValor>21) {
+								System.out.println("Te has pasado");
 							}else {
-								if(jugadorValor<crupierValor) {
-									System.out.println("Has perdido");
-								}else if(jugadorValor>crupierValor) {
-									System.out.println("Has ganado");
-									banca=banca+bote*2;
-								}else if(jugadorValor==crupierValor) {
-									System.out.println("Empate");
-									banca=banca+bote;
-								} 
-							}
+								do {
+									crupierValor = cartasCrupier(o, crupierValor, a);
+									System.out.println("[" + crupierValor + "]");
+								}while(crupierValor<17);
+								
+								banca = ganancias(banca, bote, crupierValor, jugadorValor);						}
+							
+							sigMano=true;
+							break;	
+						default: 
+							System.out.println("Esa opcion no es valida");
+							System.out.println("Apuesta anulada");
+							banca=banca+apuesta;
+							sigMano=true;
+							break;
 						}
-						
+					}catch(Exception e){
+						System.out.print("Error");
 						sigMano=true;
-						break;	
-					default: 
-						System.out.println("Esa opcion no es valida");
 					}
 				}while(sigMano!=true);
 			}
@@ -199,16 +162,59 @@ public class blackJackMain {
 				System.out.println("Has perdido todo tu dinero puto ludopata");
 				ronda=true;
 			}else {
-				System.out.println("Jugar otra ronda? (S/N)");
-				segJug=sc.next();
-				if(segJug.equalsIgnoreCase("S")) {
-					ronda=false;
-				}else {
-					ronda=true;
-				}
+				do {
+					System.out.println("Jugar otra ronda? (S/N)");
+					segJug=sc.next();
+				
+					if(segJug.equalsIgnoreCase("S")) {
+						ronda=false;
+						SiNo=true;
+					}else if(segJug.equalsIgnoreCase("N")){
+						ronda=true;
+						SiNo=true;
+					}else {
+						SiNo=false;
+					}
+				}while(SiNo!=true);
 			}
 			
 		}while(ronda!=true);
 		sc.close();
+	}
+	
+	public static int ganancias(int ganancias, int bote, int crupierValor, int jugadorValor) {
+		if(crupierValor>21) {
+			System.out.println("Has ganado");
+			ganancias=ganancias+bote*2;
+		}else {
+			if(jugadorValor<crupierValor) {
+				System.out.println("Has perdido");
+			}else if(jugadorValor>crupierValor) {
+				System.out.println("Has ganado");
+				ganancias=ganancias+bote*2;
+			}else if(jugadorValor==crupierValor) {
+				System.out.println("Empate");
+				ganancias=ganancias+bote;
+			} 
+		}
+		return ganancias;
+	}
+	
+	public static int cartasCrupier(int o, int crupierValor, ArrayList<carta> a) {
+		o = (int)(Math.random()* a.size()-1 + 0);
+		System.out.println("Carta del crupier: " + a.get(o));
+		crupierValor=crupierValor+a.get(o).getValor();
+		a.remove(o);
+		return crupierValor;
+		
+	}
+	
+	public static int cartasJugador(int o, int jugadorValor, ArrayList<carta> a) {
+		o = (int)(Math.random()* a.size()-1 + 0);
+		System.out.println(a.get(o));
+		jugadorValor=jugadorValor+a.get(o).getValor();
+		a.remove(o);
+		return jugadorValor;
+		
 	}
 }
