@@ -68,18 +68,19 @@ public class blackJackMain {
 			banca=banca-apuesta;
 			bote=bote+apuesta;
 			
-			
-			crupierValor = cartasCrupier(o, crupierValor, a);
+			System.out.println("Carta del crupier: ");
+			crupierValor = cartasJugadorCrupier(o, crupierValor, a);
 			
 			System.out.println("Tus cartas: ");
-			jugadorValor = cartasJugador(o, jugadorValor, a);
+			jugadorValor = cartasJugadorCrupier(o, jugadorValor, a);
 			
-			jugadorValor = cartasJugador(o, jugadorValor, a);
+			jugadorValor = cartasJugadorCrupier(o, jugadorValor, a);
 			System.out.println("[" + jugadorValor + "]");
 			doblar=false;
 			
 			if(jugadorValor==21) {
-				crupierValor = cartasCrupier(o, crupierValor, a);
+				System.out.println("Carta del crupier: ");
+				crupierValor = cartasJugadorCrupier(o, crupierValor, a);
 				System.out.println("[" + crupierValor + "]");
 				if(crupierValor==21) {
 					System.out.println("Empate");
@@ -102,7 +103,7 @@ public class blackJackMain {
 						
 						switch(suikeis){
 						case 1:
-							jugadorValor = cartasJugador(o, jugadorValor, a);
+							jugadorValor = cartasJugadorCrupier(o, jugadorValor, a);
 							System.out.println("[" + jugadorValor + "]");
 							
 							if(jugadorValor>21) {
@@ -115,7 +116,8 @@ public class blackJackMain {
 							
 						case 2:
 							do {
-								crupierValor = cartasCrupier(o, crupierValor, a);
+								System.out.println("Carta del crupier: ");
+								crupierValor = cartasJugadorCrupier(o, crupierValor, a);
 								System.out.println("[" + crupierValor + "]");
 							}while(crupierValor<17);
 							
@@ -128,14 +130,15 @@ public class blackJackMain {
 							banca=banca-apuesta;
 							bote=bote+apuesta;
 							
-							jugadorValor = cartasJugador(o, jugadorValor, a);
+							jugadorValor = cartasJugadorCrupier(o, jugadorValor, a);
 							System.out.println("[" + jugadorValor + "]");
 							
 							if(jugadorValor>21) {
 								System.out.println("Te has pasado");
 							}else {
 								do {
-									crupierValor = cartasCrupier(o, crupierValor, a);
+									System.out.println("Carta del crupier: ");
+									crupierValor = cartasJugadorCrupier(o, crupierValor, a);
 									System.out.println("[" + crupierValor + "]");
 								}while(crupierValor<17);
 								
@@ -200,21 +203,13 @@ public class blackJackMain {
 		return ganancias;
 	}
 	
-	public static int cartasCrupier(int o, int crupierValor, ArrayList<carta> a) {
-		o = (int)(Math.random()* a.size()-1 + 0);
-		System.out.println("Carta del crupier: " + a.get(o));
-		crupierValor=crupierValor+a.get(o).getValor();
-		a.remove(o);
-		return crupierValor;
-		
-	}
 	
-	public static int cartasJugador(int o, int jugadorValor, ArrayList<carta> a) {
+	public static int cartasJugadorCrupier(int o, int jugadorCrupierValor, ArrayList<carta> a) {
 		o = (int)(Math.random()* a.size()-1 + 0);
 		System.out.println(a.get(o));
-		jugadorValor=jugadorValor+a.get(o).getValor();
+		jugadorCrupierValor=jugadorCrupierValor+a.get(o).getValor();
 		a.remove(o);
-		return jugadorValor;
+		return jugadorCrupierValor;
 		
 	}
 }
