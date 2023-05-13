@@ -15,6 +15,7 @@ public class blackJackMain {
 		carta f = new carta();
 		
 		int o=0, crupierValor=0, jugadorValor=0, banca=1000, bote=0, suikeis, apuesta;
+		int contC=0, contJ=0;
 		String segJug ;
 		boolean sigMano = false;
 		boolean doblar = false;
@@ -56,6 +57,8 @@ public class blackJackMain {
 			bote=0;
 			jugadorValor=0;
 			crupierValor=0;
+			contJ=0;
+			contC=0;
 			
 			System.out.println("Tu banca: " + banca);
 			System.out.println("Cuanto quieres apostar?");
@@ -69,18 +72,32 @@ public class blackJackMain {
 			bote=bote+apuesta;
 			
 			System.out.println("Carta del crupier: ");
+			o = (int)(Math.random()* a.size()-1 + 0);
+			contC = contC + As(o, a);
 			crupierValor = cartasJugadorCrupier(o, crupierValor, a);
 			
 			System.out.println("Tus cartas: ");
+			o = (int)(Math.random()* a.size()-1 + 0);
+			contJ = contJ + As(o, a);
 			jugadorValor = cartasJugadorCrupier(o, jugadorValor, a);
 			
+			o = (int)(Math.random()* a.size()-1 + 0);
+			contJ = contJ + As(o, a);
 			jugadorValor = cartasJugadorCrupier(o, jugadorValor, a);
 			System.out.println("[" + jugadorValor + "]");
 			doblar=false;
 			
 			if(jugadorValor==21) {
 				System.out.println("Carta del crupier: ");
+				o = (int)(Math.random()* a.size()-1 + 0);
+				contC = contC + As(o, a);
 				crupierValor = cartasJugadorCrupier(o, crupierValor, a);
+				
+				while(crupierValor>21 && contC>0) {
+					crupierValor=crupierValor-10;
+					contC--;
+				}
+				
 				System.out.println("[" + crupierValor + "]");
 				if(crupierValor==21) {
 					System.out.println("Empate");
@@ -103,7 +120,15 @@ public class blackJackMain {
 						
 						switch(suikeis){
 						case 1:
+							o = (int)(Math.random()* a.size()-1 + 0);
+							contJ = contJ + As(o, a);
 							jugadorValor = cartasJugadorCrupier(o, jugadorValor, a);
+							
+							while(jugadorValor>21 && contJ>0) {
+								jugadorValor=jugadorValor-10;
+								contJ--;
+							}
+							
 							System.out.println("[" + jugadorValor + "]");
 							
 							if(jugadorValor>21) {
@@ -117,7 +142,15 @@ public class blackJackMain {
 						case 2:
 							do {
 								System.out.println("Carta del crupier: ");
+								o = (int)(Math.random()* a.size()-1 + 0);
+								contC = contC + As(o, a);
 								crupierValor = cartasJugadorCrupier(o, crupierValor, a);
+								
+								while(crupierValor>21 && contC>0) {
+									crupierValor=crupierValor-10;
+									contC--;
+								}
+								
 								System.out.println("[" + crupierValor + "]");
 							}while(crupierValor<17);
 							
@@ -130,7 +163,15 @@ public class blackJackMain {
 							banca=banca-apuesta;
 							bote=bote+apuesta;
 							
+							o = (int)(Math.random()* a.size()-1 + 0);
+							contJ = contJ + As(o, a);
 							jugadorValor = cartasJugadorCrupier(o, jugadorValor, a);
+							
+							while(jugadorValor>21 && contJ>0) {
+								jugadorValor=jugadorValor-10;
+								contJ--;
+							}
+							
 							System.out.println("[" + jugadorValor + "]");
 							
 							if(jugadorValor>21) {
@@ -138,7 +179,15 @@ public class blackJackMain {
 							}else {
 								do {
 									System.out.println("Carta del crupier: ");
+									o = (int)(Math.random()* a.size()-1 + 0);
+									contC = contC + As(o, a);
 									crupierValor = cartasJugadorCrupier(o, crupierValor, a);
+									
+									while(crupierValor>21 && contC>0) {
+										crupierValor=crupierValor-10;
+										contC--;
+									}
+									
 									System.out.println("[" + crupierValor + "]");
 								}while(crupierValor<17);
 								
@@ -185,6 +234,7 @@ public class blackJackMain {
 		sc.close();
 	}
 	
+	
 	public static int ganancias(int ganancias, int bote, int crupierValor, int jugadorValor) {
 		if(crupierValor>21) {
 			System.out.println("Has ganado");
@@ -205,11 +255,19 @@ public class blackJackMain {
 	
 	
 	public static int cartasJugadorCrupier(int o, int jugadorCrupierValor, ArrayList<carta> a) {
-		o = (int)(Math.random()* a.size()-1 + 0);
 		System.out.println(a.get(o));
 		jugadorCrupierValor=jugadorCrupierValor+a.get(o).getValor();
 		a.remove(o);
 		return jugadorCrupierValor;
-		
 	}
+	
+	
+	public static int As(int as, ArrayList<carta> a) {
+		if(a.get(as).getNumero().equals("A")) {
+			return 1;
+		}else {
+			return 0;
+		}
+	}
+	
 }

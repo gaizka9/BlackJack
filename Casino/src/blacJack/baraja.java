@@ -75,7 +75,7 @@ public class baraja {
 			FileOutputStream fos = new FileOutputStream("carta.dat");
 			ObjectOutputStream oos = new ObjectOutputStream (fos);	
 
-			//Baraja 1				//Baraja 2				//Baraja 3				//Baraja 4				
+			//Baraja 1				Baraja 2				Baraja 3				Baraja 4				
 			oos.writeObject(tA);	oos.writeObject(tA);	oos.writeObject(tA);	oos.writeObject(tA);	
 			oos.writeObject(t2);	oos.writeObject(t2);	oos.writeObject(t2);	oos.writeObject(t2);	
 			oos.writeObject(t3);	oos.writeObject(t3);	oos.writeObject(t3);	oos.writeObject(t3);	
@@ -133,7 +133,7 @@ public class baraja {
 			oos.writeObject(pK);	oos.writeObject(pK);	oos.writeObject(pK);	oos.writeObject(pK);
 			
 			
-			//Baraja 5				//Baraja 6				//Baraja 7				//Baraja 8				
+			//Baraja 5				Baraja 6				Baraja 7				Baraja 8				
 			oos.writeObject(tA);	oos.writeObject(tA);	oos.writeObject(tA);	oos.writeObject(tA);	
 			oos.writeObject(t2);	oos.writeObject(t2);	oos.writeObject(t2);	oos.writeObject(t2);	
 			oos.writeObject(t3);	oos.writeObject(t3);	oos.writeObject(t3);	oos.writeObject(t3);	
