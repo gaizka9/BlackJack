@@ -90,17 +90,12 @@ public class blackJackMain {
 			if(jugadorValor==21) {
 				System.out.println("Carta del crupier: ");
 				o = (int)(Math.random()* a.size()-1 + 0);
-				contC = contC + As(o, a);
 				crupierValor = cartasJugadorCrupier(o, crupierValor, a);
-				
-				while(crupierValor>21 && contC>0) {
-					crupierValor=crupierValor-10;
-					contC--;
-				}
 				
 				System.out.println("[" + crupierValor + "]");
 				if(crupierValor==21) {
 					System.out.println("Empate");
+					banca=banca+apuesta;
 				}else {
 					System.out.println("Black Jack!!!!");
 					banca=banca+bote/2+bote*2;
@@ -203,7 +198,8 @@ public class blackJackMain {
 							break;
 						}
 					}catch(Exception e){
-						System.out.print("Error");
+						System.out.println("Error");
+						banca=banca+apuesta;
 						sigMano=true;
 					}
 				}while(sigMano!=true);
