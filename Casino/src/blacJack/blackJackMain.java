@@ -105,7 +105,7 @@ public class blackJackMain {
 				do {
 					System.out.println("1- Pedir carta");
 					System.out.println("2- Plantarse");
-					if(doblar!=true && apuesta<=banca) {
+					if(!doblar && apuesta<=banca) {
 						System.out.println("3- Doblar apuesta");
 						doblar=true;
 					}
@@ -202,7 +202,7 @@ public class blackJackMain {
 						banca=banca+apuesta;
 						sigMano=true;
 					}
-				}while(sigMano!=true);
+				}while(!sigMano);
 			}
 
 			System.out.println("Tu banca: " + banca);
@@ -223,10 +223,10 @@ public class blackJackMain {
 					}else {
 						SiNo=false;
 					}
-				}while(SiNo!=true);
+				}while(!SiNo);
 			}
 			
-		}while(ronda!=true);
+		}while(!ronda);
 		sc.close();
 	}
 	
