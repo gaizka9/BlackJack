@@ -14,65 +14,33 @@ public class baraja {
 		
 		ArrayList<carta> barajas = new ArrayList<carta>();
 		int baraja=8;
+		String f="";
 		
-		carta tA = new carta("T", "A", 11);		barajas.add(tA);
-		carta t2 = new carta("T", "2", 2);		barajas.add(t2);
-		carta t3 = new carta("T", "3", 3);		barajas.add(t3);
-		carta t4 = new carta("T", "4", 4);		barajas.add(t4);
-		carta t5 = new carta("T", "5", 5);		barajas.add(t5);
-		carta t6 = new carta("T", "6", 6);		barajas.add(t6);
-		carta t7 = new carta("T", "7", 7);		barajas.add(t7);
-		carta t8 = new carta("T", "8", 8);		barajas.add(t8);
-		carta t9 = new carta("T", "9", 9);		barajas.add(t9);
-		carta t10 = new carta("T", "10", 10);	barajas.add(t10);
-		carta tJ = new carta("T", "J", 10);		barajas.add(tJ);	
-		carta tQ = new carta("T", "Q", 10);		barajas.add(tQ);	
-		carta tK = new carta("T", "K", 10);		barajas.add(tK);
+		for(int i=0; i<4; i++) {
+			if(i==0) {
+				f="T";
+			}else if(i==1) {
+				f="C";
+			}else if(i==2) {
+				f="D";
+			}else if(i==3) {
+				f="P";
+			}
+			carta fA = new carta(f, "A", 11);		barajas.add(fA);
+			carta f2 = new carta(f, "2", 2);		barajas.add(f2);
+			carta f3 = new carta(f, "3", 3);		barajas.add(f3);
+			carta f4 = new carta(f, "4", 4);		barajas.add(f4);
+			carta f5 = new carta(f, "5", 5);		barajas.add(f5);
+			carta f6 = new carta(f, "6", 6);		barajas.add(f6);
+			carta f7 = new carta(f, "7", 7);		barajas.add(f7);
+			carta f8 = new carta(f, "8", 8);		barajas.add(f8);
+			carta f9 = new carta(f, "9", 9);		barajas.add(f9);
+			carta f10 = new carta(f, "10", 10);		barajas.add(f10);
+			carta fJ = new carta(f, "J", 10);		barajas.add(fJ);	
+			carta fQ = new carta(f, "Q", 10);		barajas.add(fQ);	
+			carta fK = new carta(f, "K", 10);		barajas.add(fK);
+		}
 		
-		
-		carta cA = new carta("C", "A", 11);		barajas.add(cA);	
-		carta c2 = new carta("C", "2", 2);		barajas.add(c2);
-		carta c3 = new carta("C", "3", 3);		barajas.add(c3);
-		carta c4 = new carta("C", "4", 4);		barajas.add(c4);
-		carta c5 = new carta("C", "5", 5);		barajas.add(c5);
-		carta c6 = new carta("C", "6", 6);		barajas.add(c6);
-		carta c7 = new carta("C", "7", 7);		barajas.add(c7);
-		carta c8 = new carta("C", "8", 8);		barajas.add(c8);
-		carta c9 = new carta("C", "9", 9);		barajas.add(c9);
-		carta c10 = new carta("C", "10", 10);	barajas.add(c10);
-		carta cJ = new carta("C", "J", 10);		barajas.add(cJ);
-		carta cQ = new carta("C", "Q", 10);		barajas.add(cQ);
-		carta cK = new carta("C", "K", 10);		barajas.add(cK);
-		
-		
-		carta dA = new carta("D", "A", 11);		barajas.add(dA);
-		carta d2 = new carta("D", "2", 2);		barajas.add(d2);
-		carta d3 = new carta("D", "3", 3);		barajas.add(d3);
-		carta d4 = new carta("D", "4", 4);		barajas.add(d4);
-		carta d5 = new carta("D", "5", 5);		barajas.add(d5);
-		carta d6 = new carta("D", "6", 6);		barajas.add(d6);
-		carta d7 = new carta("D", "7", 7);		barajas.add(d7);
-		carta d8 = new carta("D", "8", 8);		barajas.add(d8);
-		carta d9 = new carta("D", "9", 9);		barajas.add(d9);
-		carta d10 = new carta("D", "10", 10);	barajas.add(d10);
-		carta dJ = new carta("D", "J", 10);		barajas.add(dJ);
-		carta dQ = new carta("D", "Q", 10);		barajas.add(dQ);
-		carta dK = new carta("D", "K", 10);		barajas.add(dK);
-		
-		
-		carta pA = new carta("P", "A", 11);		barajas.add(pA);
-		carta p2 = new carta("P", "2", 2);		barajas.add(p2);
-		carta p3 = new carta("P", "3", 3);		barajas.add(p3);
-		carta p4 = new carta("P", "4", 4);		barajas.add(p4);
-		carta p5 = new carta("P", "5", 5);		barajas.add(p5);
-		carta p6 = new carta("P", "6", 6);		barajas.add(p6);
-		carta p7 = new carta("P", "7", 7);		barajas.add(p7);
-		carta p8 = new carta("P", "8", 8);		barajas.add(p8);
-		carta p9 = new carta("P", "9", 9);		barajas.add(p9);
-		carta p10 = new carta("P", "10", 10);	barajas.add(p10);
-		carta pJ = new carta("P", "J", 10);		barajas.add(pJ);
-		carta pQ = new carta("P", "Q", 10);		barajas.add(pQ);
-		carta pK = new carta("P", "K", 10);		barajas.add(pK);	
 	
 		
 		try {
@@ -84,6 +52,7 @@ public class baraja {
 						oos.writeObject(barajas.get(j));
 					}
 				}
+				
 			
 			// cierro los recursos abiertos
 			oos.close();
@@ -96,7 +65,7 @@ public class baraja {
 			
 		// Despu�s lee los datos del Fecha desde fechas.dat y 
 		
-		try {
+		/*try {
 			FileInputStream fis = new FileInputStream("carta.dat");
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			
@@ -119,6 +88,6 @@ public class baraja {
 		} catch (ClassNotFoundException cnfe) {
 			// si se produce un error de Clase No Encontrada
 			System.out.println("Error Clase No Encontrada");
-		}
+		}*/
 	}
 }
