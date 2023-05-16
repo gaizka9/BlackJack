@@ -16,7 +16,7 @@ public class blackJackMain {
 		
 		int o=0, crupierValor=0, jugadorValor=0, banca=1000, bote=0, suikeis, apuesta;
 		int contC=0, contJ=0;
-		String segJug ;
+		String segJug, asegurar;
 		boolean sigMano = false;
 		boolean doblar = false;
 		boolean SiNo = false;
@@ -75,6 +75,32 @@ public class blackJackMain {
 			o = (int)(Math.random()* a.size()-1 + 0);
 			contC = contC + As(o, a);
 			crupierValor = cartasJugadorCrupier(o, crupierValor, a);
+			
+			if(crupierValor==11) {
+				do {
+					System.out.println("Asegurar apuesta?(S/N) ");
+					asegurar=sc.next();
+				
+					if(asegurar.equalsIgnoreCase("S")) {
+						bote=bote+apuesta;
+						SiNo=true;
+					}else if(asegurar.equalsIgnoreCase("N")){
+						SiNo=true;
+					}else {
+						SiNo=false;
+					}
+				}while(!SiNo);
+				
+				o = (int)(Math.random()* a.size()-1 + 0);
+				crupierValor = cartasJugadorCrupier(o, crupierValor, a);
+				System.out.println("[" + crupierValor + "]");
+				
+				if(crupierValor==21) {
+					banca=banca+apuesta;
+				}
+			}else {
+				
+			}
 			
 			System.out.println("Tus cartas: ");
 			o = (int)(Math.random()* a.size()-1 + 0);
